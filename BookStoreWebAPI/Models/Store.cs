@@ -7,7 +7,7 @@ namespace BookStoreWebAPI.Models
     {
         public Store()
         {
-            Sale = new HashSet<Sale>();
+            Sales = new HashSet<Sale>();
         }
 
         public string StoreId { get; set; }
@@ -17,6 +17,6 @@ namespace BookStoreWebAPI.Models
         public string State { get; set; }
         public string Zip { get; set; }
 
-        public ICollection<Sale> Sale { get; set; }
+        public ICollection<Sale> Sales { get; set; }
     }
 }

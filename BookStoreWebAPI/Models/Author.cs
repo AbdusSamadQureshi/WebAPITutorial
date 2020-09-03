@@ -7,7 +7,7 @@ namespace BookStoreWebAPI.Models
     {
         public Author()
         {
-            BookAuthor = new HashSet<BookAuthor>();
+            BookAuthors = new HashSet<BookAuthor>();
         }
 
         public int AuthorId { get; set; }
@@ -20,6 +20,6 @@ namespace BookStoreWebAPI.Models
         public string Zip { get; set; }
         public string EmailAddress { get; set; }
 
-        public ICollection<BookAuthor> BookAuthor { get; set; }
+        public ICollection<BookAuthor> BookAuthors { get; set; }
     }
 }

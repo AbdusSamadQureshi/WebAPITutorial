@@ -7,8 +7,8 @@ namespace BookStoreWebAPI.Models
     {
         public Book()
         {
-            BookAuthor = new HashSet<BookAuthor>();
-            Sale = new HashSet<Sale>();
+            BookAuthors = new HashSet<BookAuthor>();
+            Sales = new HashSet<Sale>();
         }
 
         public int BookId { get; set; }
@@ -23,7 +23,7 @@ namespace BookStoreWebAPI.Models
         public DateTime PublishedDate { get; set; }
 
         public Publisher Pub { get; set; }
-        public ICollection<BookAuthor> BookAuthor { get; set; }
-        public ICollection<Sale> Sale { get; set; }
+        public ICollection<BookAuthor> BookAuthors { get; set; }
+        public ICollection<Sale> Sales { get; set; }
     }
 }

@@ -47,12 +47,12 @@ namespace BookStoreWebAPI.Controllers
 
 
                 //Delete an Author
-                Author author = context.Author.Where(a => a.FirstName == "Abdullah").FirstOrDefault();
-                context.Author.Remove(author);
+                Author author = context.Authors.Where(a => a.FirstName == "Abdullah").FirstOrDefault();
+                context.Authors.Remove(author);
 
                 context.SaveChanges();
 
-                return context.Author.Where(a => a.FirstName == "Abdullah").ToList();
+                return context.Authors.Where(a => a.FirstName == "Abdullah").ToList();
 
 
             }

@@ -7,8 +7,8 @@ namespace BookStoreWebAPI.Models
     {
         public Publisher()
         {
-            Book = new HashSet<Book>();
-            User = new HashSet<User>();
+            Books = new HashSet<Book>();
+            Users = new HashSet<User>();
         }
 
         public int PubId { get; set; }
@@ -17,7 +17,7 @@ namespace BookStoreWebAPI.Models
         public string State { get; set; }
         public string Country { get; set; }
 
-        public ICollection<Book> Book { get; set; }
-        public ICollection<User> User { get; set; }
+        public ICollection<Book> Books { get; set; }
+        public ICollection<User> Users { get; set; }
     }
 }
