@@ -46,6 +46,32 @@ namespace BookStoreWebAPI.Controllers
             return Ok(publisher);
         }
 
+
+        // GET: api/Publishers/5
+        [HttpGet("GetPublisherDetails/{id}")]
+        public IActionResult GetPublisherDetails(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var publisher = _context.Publishers
+                .Include(pub => pub.Books)
+                .ThenInclude(books => books.Sales)
+                 .Include(pub => pub.Users)
+                 //.ThenInclude(users => users.)
+                .Where(pub => pub.PubId == id).FirstOrDefault();
+
+            if (publisher == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(publisher);
+        }
+
+
         // PUT: api/Publishers/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPublisher([FromRoute] int id, [FromBody] Publisher publisher)

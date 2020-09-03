@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/Publishers",
+      "launchUrl": "api/Publishers/GetPublisherDetails/1",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,7 +20,7 @@
     "BookStoreWebAPI": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/Publishers",
+      "launchUrl": "api/Publishers/GetPublisherDetails/1",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 
 namespace BookStoreWebAPI
 {
@@ -24,16 +25,21 @@ namespace BookStoreWebAPI
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        [Obsolete]
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<BookStoresContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("BookStoresDB")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            
+            services.AddMvc(option => option.EnableEndpointRouting = false)             
+              .AddNewtonsoftJson(opt =>opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        [Obsolete]
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -41,7 +47,7 @@ namespace BookStoreWebAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
+            _ = app.UseMvc();
         }
     }
 }
